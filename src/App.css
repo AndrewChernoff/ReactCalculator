@@ -13,7 +13,7 @@ input {
     cursor: pointer;
 }
 .main {
-    width: 30%;
+    width: 600px;
     height: 100%;
     margin: 20px auto;
     background-color: black;
@@ -26,7 +26,7 @@ input {
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 90px);
+    grid-template-rows: repeat(5, 130px);
     grid-gap: 5px;
 }
 
@@ -38,7 +38,7 @@ input {
     background-color: #212331;
     border-radius: 10px;
     color: #fff;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .largButton {
@@ -47,11 +47,11 @@ input {
 
 .input {
     width: 100%;
-    height: 100px;
+    height: 150px;
 }
 
 .input input {
-    font-size: 50px;
+    font-size: 70px;
     background-color: black;
     width: 100%;
     height: 100%;
