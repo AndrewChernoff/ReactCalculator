@@ -1,14 +1,14 @@
 import React from 'react'
 
 const Button = props => {
-    
+
     return (
-        <button
-            className={!props.largButton ? null : props.largButton}
-            id={props.colorBtn}
-        >
-            {props.current}
+
+        <button name={props.name} onClick={props.operation} className={props.className}>
+            {props.name}
         </button>
+
+
     )
 }
 

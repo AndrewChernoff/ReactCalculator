@@ -30,7 +30,7 @@ input {
     grid-gap: 5px;
 }
 
-#colorBtn {
+.colorBtn {
     background-color: cornflowerblue;
 }
 
