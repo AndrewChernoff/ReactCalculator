@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import Input from './components/Input/Input'
+import Button from './components/Button/Button'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    return (
+        <div className="main">
+            <div className="input">
+                <Input />
+            </div>
+            <div className="buttons">
+                <Button current={'C'} colorBtn={'colorBtn'} />
+                <Button
+                    current={'Clearn'}
+                    largButton={'largButton'}
+                    colorBtn={'colorBtn'}
+                />
+                <Button current={'/'} colorBtn={'colorBtn'} />
+                <Button current={7} />
+                <Button current={8} />
+                <Button current={9} />
+                <Button current={'*'} colorBtn={'colorBtn'} />
+                <Button current={6} />
+                <Button current={5} />
+                <Button current={4} />
+                <Button current={'-'} colorBtn={'colorBtn'} />
+                <Button current={3} />
+                <Button current={2} />
+                <Button current={1} />
+                <Button current={'+'} colorBtn={'colorBtn'} />
+                <Button current={'0'} />
+                <Button
+                    current={'='}
+                    largButton={'largButton'}
+                    colorBtn={'colorBtn'}
+                />
+                <Button current={'.'} colorBtn={'colorBtn'} />
+            </div>
+        </div>
+    )
 }
 
-export default App;
+export default App
