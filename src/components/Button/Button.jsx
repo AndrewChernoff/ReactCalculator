@@ -3,7 +3,6 @@ import { setValue } from '../redux/reducer/inputReducer'
 
 const Button = props => {
     let updateInput = () => {
-        debugger
         props.dispatch(setValue(props.current))
     }
 

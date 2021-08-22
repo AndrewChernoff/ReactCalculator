@@ -2,7 +2,7 @@ const SET_VALUE = 'SET_VALUE'
 
 let initionState = {
     current: '',
-    MathOperator: null,
+    MathOperator: false,
 }
 // '123+123+123+123'.indexOf('+', 7+1)
 // str.slice(0, 1)
@@ -53,11 +53,30 @@ const inputReducer = (state = initionState, action) => {
                 return {
                     ...state,
                     current: newCurrent.slice(0, 15),
+                    MathOperator: false,
                 }
             } else {
-                return {
-                    ...state,
-                    current: state.current + action.newCurrent,
+                if (
+                    action.newCurrent === '+' ||
+                    action.newCurrent === '-' ||
+                    action.newCurrent === '/' ||
+                    action.newCurrent === '*'
+                ) {
+                    if (state.MathOperator) {
+                        alert('Нажмите = :ХD')
+                        return state
+                    } else {
+                        return {
+                            ...state,
+                            current: state.current + action.newCurrent,
+                            MathOperator: true,
+                        }
+                    }
+                } else {
+                    return {
+                        ...state,
+                        current: state.current + action.newCurrent,
+                    }
                 }
             }
         default:

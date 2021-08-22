@@ -4,7 +4,6 @@ import Input from './components/Input/Input'
 import Button from './components/Button/Button'
 
 const App = props => {
-    debugger
     return (
         <div className="main">
             <div className="input">
