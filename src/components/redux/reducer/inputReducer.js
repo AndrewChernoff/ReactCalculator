@@ -9,17 +9,7 @@ let initionState = {
 const inputReducer = (state = initionState, action) => {
     switch (action.type) {
         case SET_VALUE:
-            if (action.newCurrent === 'Clearn') {
-                return {
-                    ...state,
-                    current: '',
-                }
-            } else if (action.newCurrent === 'C') {
-                return {
-                    ...state,
-                    current: state.current.slice(0, state.current.length - 1),
-                }
-            } else if (action.newCurrent === '=') {
+            const outcome = () => {
                 let example = state.current
                 const mapOperator = () => {
                     if (example.indexOf('+') !== -1) {
@@ -49,7 +39,20 @@ const inputReducer = (state = initionState, action) => {
                 } else if (operator === '-') {
                     newCurrent = oneNum - twoNum + ''
                 }
-
+                return newCurrent
+            }
+            if (action.newCurrent === 'Clearn') {
+                return {
+                    ...state,
+                    current: '',
+                }
+            } else if (action.newCurrent === 'C') {
+                return {
+                    ...state,
+                    current: state.current.slice(0, state.current.length - 1),
+                }
+            } else if (action.newCurrent === '=') {
+                let newCurrent = outcome()
                 return {
                     ...state,
                     current: newCurrent.slice(0, 15),
@@ -63,8 +66,12 @@ const inputReducer = (state = initionState, action) => {
                     action.newCurrent === '*'
                 ) {
                     if (state.MathOperator) {
-                        alert('Нажмите = :ХD')
-                        return state
+                        let newValue = outcome()
+                        return {
+                            ...state,
+                            current: newValue + action.newCurrent,
+                            MathOperator: true,
+                        }
                     } else {
                         return {
                             ...state,
@@ -75,7 +82,10 @@ const inputReducer = (state = initionState, action) => {
                 } else {
                     return {
                         ...state,
-                        current: state.current + action.newCurrent,
+                        current: (state.current + action.newCurrent).slice(
+                            0,
+                            15
+                        ),
                     }
                 }
             }
